@@ -6,7 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AppKi.Commons\AppKi.Commons.csproj"/>
         <ProjectReference Include="..\AppKi.DataAccess\AppKi.DataAccess.csproj"/>
         <ProjectReference Include="..\AppKi.Exchanges\AppKi.Exchanges.csproj"/>
     </ItemGroup>
