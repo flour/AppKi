@@ -1,4 +1,4 @@
-﻿namespace AppKi.Commons;
+﻿namespace AppKi.Commons.Models;
 
 public class Result
 {

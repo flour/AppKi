@@ -6,16 +6,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AppKi.DataAccess\AppKi.DataAccess.csproj"/>
-        <ProjectReference Include="..\AppKi.Exchanges\AppKi.Exchanges.csproj"/>
+        <ProjectReference Include="..\AppKi.DataAccess\AppKi.DataAccess.csproj" />
+        <ProjectReference Include="..\AppKi.Exchanges\AppKi.Exchanges.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mediator.Abstractions" Version="2.1.0-preview.5"/>
+        <PackageReference Include="Mediator.Abstractions" Version="2.1.0-preview.5" />
         <PackageReference Include="Mediator.SourceGenerator" Version="2.1.0-preview.5">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features" />
     </ItemGroup>
 
 </Project>
