@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseLogging();
 
-
-builder.Services.AddRazorPages().Services
+builder.Services
+    .AddRazorPages().Services
     .AddServerSideBlazor().Services
+    .AddAntDesign()
     .AddSingleton<WeatherForecastService>();
 
 var app = builder.Build();
