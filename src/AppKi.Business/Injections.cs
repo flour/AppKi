@@ -1,4 +1,7 @@
-﻿using AppKi.DataAccess;
+﻿using AppKi.Business.Services;
+using AppKi.Business.Services.Internals;
+using AppKi.DataAccess;
+using AppKi.Domain.Identity;
 using AppKi.Exchanges;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +15,11 @@ public static class Injections
         return services
             .AddMediator()
             .AddExchanges(configuration)
-            .AddDataAccess(configuration);
+            .AddDataAccess(configuration)
+            .AddIdentity<AppKiUser, AppKiUserRole>()
+            .AddEntityFrameworkStores<AppKiDbContext>().Services
+            
+            // services
+            .AddScoped<IDataFeedService, DataFeedService>();
     }
 }

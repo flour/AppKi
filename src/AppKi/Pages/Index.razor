@@ -1,3 +1,33 @@
 ﻿@page "/"
+@using AppKi.Business.Services
+@inject IDataFeedService Feed
 
 <PageTitle>Index</PageTitle>
+<Form Model="@model">
+    <FormItem label="Symbol">
+        <Select Mode="default"
+                DataSource="@model.Symbols"
+                @bind-Value="@context.SelectedSymbol"
+                LabelName="@nameof(SymbolDto.Symbol)"
+                ValueName="@nameof(SymbolDto.ApiSymbol)">
+
+        </Select>
+    </FormItem>
+</Form>
+
+@code
+{
+    public class IndexModel
+    {
+        public string SelectedSymbol { get; set; }
+        
+        public IEnumerable<SymbolDto> Symbols { get; set; } = new List<SymbolDto>();
+    }
+
+    private IndexModel model = new IndexModel();
+
+    protected override async Task OnInitializedAsync()
+    {
+        model.Symbols = (await Feed.GetSymbols(new GetSymbolsRequest())).Data;
+    }
+}

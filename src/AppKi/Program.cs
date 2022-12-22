@@ -1,4 +1,4 @@
-using AppKi.Data;
+using AppKi.Business;
 using Flour.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +9,7 @@ builder.Services
     .AddRazorPages().Services
     .AddServerSideBlazor().Services
     .AddAntDesign()
-    .AddSingleton<WeatherForecastService>();
+    .AddBusiness(builder.Configuration);
 
 var app = builder.Build();
 
