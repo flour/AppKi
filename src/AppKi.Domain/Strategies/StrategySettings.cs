@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AppKi.Domain.Tables;
+namespace AppKi.Domain.Strategies;
 
 public class StrategySettings : BaseEntity<int>
 {

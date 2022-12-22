@@ -1,4 +1,5 @@
 ﻿using AppKi.Commons.Enums;
+using AppKi.Domain.Strategies;
 using AppKi.Domain.Tables;
 using AppKi.Exchanges;
 using AppKi.Exchanges.Models;

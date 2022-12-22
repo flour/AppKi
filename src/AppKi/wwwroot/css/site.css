@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     width: 1vw;
     height: 1vh;
+    background: red;
 }
 
 h1:focus {

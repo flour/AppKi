@@ -1,6 +1,6 @@
 ﻿namespace AppKi.Domain.Tables;
 
-public class TickerCriteria
+public abstract class TickerCriteria
 {
     public int RateDiff24H { get; set; }
     public int BetweenOrdersDiff { get; set; }
