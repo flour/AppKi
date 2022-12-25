@@ -13,6 +13,7 @@ public static class Injections
     public static IServiceCollection AddBusiness(this IServiceCollection services, IConfiguration configuration)
     {
         return services
+            .AddSignalR().Services  
             .AddMediator()
             .AddExchanges(configuration)
             .AddDataAccess(configuration)

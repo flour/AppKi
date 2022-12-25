@@ -1,4 +1,5 @@
 using AppKi.Business;
+using AppKi.Business.Hubs;
 using Flour.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +13,13 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
+app.UseRouting()
+    .UseHttpsRedirection()
+    .UseAuthorization()
+    .UseEndpoints(endpoints =>
+    {
+        endpoints.MapHub<PublicHub>("ws/public");
+        endpoints.MapControllers();
+    });
 
 app.Run();
