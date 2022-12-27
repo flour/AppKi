@@ -13,7 +13,9 @@ builder.Services
 
 var app = builder.Build();
 
-app.UseRouting()
+app
+    .UsePathBase(new PathString("/api"))
+    .UseRouting()
     .UseHttpsRedirection()
     .UseAuthorization()
     .UseEndpoints(endpoints =>

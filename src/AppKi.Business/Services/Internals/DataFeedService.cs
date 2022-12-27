@@ -18,17 +18,22 @@ internal class DataFeedService : IDataFeedService
         _logger = logger;
     }
 
-    public async Task<ResultList<SymbolDto>> GetSymbols(GetSymbolsRequest request, CancellationToken token = default)
+    public async Task<PagedResult<SymbolDto>> GetSymbols(GetSymbolsRequest request, CancellationToken token = default)
     {
         await Task.Yield();
-        return ResultList<SymbolDto>.Ok(new List<SymbolDto>
+        return PagedResult<SymbolDto>.Ok(new List<SymbolDto>
         {
-            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.Kucoin),
-            new("ETH", "USDC", "ETH-USDC", ExchangeProvider.Kucoin),
-            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.GateIo),
-            new("ETH", "USDT", "ETHUST", ExchangeProvider.Bitfinex),
-            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.Bittrex),
-        });
+            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.Kucoin, (decimal) _random.NextDouble(),
+                (decimal) _random.NextDouble()),
+            new("ETH", "USDC", "ETH-USDC", ExchangeProvider.Kucoin, (decimal) _random.NextDouble(),
+                (decimal) _random.NextDouble()),
+            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.GateIo, (decimal) _random.NextDouble(),
+                (decimal) _random.NextDouble()),
+            new("ETH", "USDT", "ETHUST", ExchangeProvider.Bitfinex, (decimal) _random.NextDouble(),
+                (decimal) _random.NextDouble()),
+            new("ETH", "USDT", "ETH-USDT", ExchangeProvider.Bittrex, (decimal) _random.NextDouble(),
+                (decimal) _random.NextDouble()),
+        }, request.count, request.page, 5);
     }
 
     public async IAsyncEnumerable<OhlcvDto> GetOhlcv(GetOhlcvRequest request, CancellationToken token = default)

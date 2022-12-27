@@ -14,7 +14,7 @@ public static class Injections
     {
         return services
             .AddSignalR().Services  
-            .AddMediator()
+            .AddMediator(opts => opts.ServiceLifetime = ServiceLifetime.Scoped)
             .AddExchanges(configuration)
             .AddDataAccess(configuration)
             .AddIdentity<AppKiUser, AppKiUserRole>()
