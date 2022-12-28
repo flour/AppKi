@@ -1,6 +1,6 @@
 export abstract class AService {
   protected static getUrl(url: string): string {
-    return `/api/v1/${url}`;
+    return `https://localhost:5001/api/${url}`;
   }
 
   protected static async http(method: string, url: string, data?: any, options?: any): Promise<any> {

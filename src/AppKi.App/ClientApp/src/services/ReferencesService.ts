@@ -9,10 +9,10 @@ export interface ReferenceType {
 export class ReferencesService extends AService {
   protected static BASE_URI = 'references';
 
-  public static types(
+  public static getEnumRefs(
     props: string
   ): Promise<ResponseWithData<ReferenceType[]>> {
-    return this.get(`/enums/${props}`);
+    return this.get(`/enum/${props}`);
   }
 
 }

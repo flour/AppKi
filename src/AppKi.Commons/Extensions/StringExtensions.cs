@@ -59,7 +59,7 @@ public static class StringExtensions
             return false;
         }
     }
-
+    
     public static string EnumToString(this Enum @enum)
     {
         var enumType = @enum.GetType();
