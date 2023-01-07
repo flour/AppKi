@@ -1,6 +1,6 @@
 ﻿using AppKi.Commons.Enums;
+using AppKi.Commons.Models;
 using AppKi.Domain.Strategies;
-using AppKi.Domain.Tables;
 using AppKi.Exchanges;
 using AppKi.Exchanges.Models;
 
@@ -8,7 +8,7 @@ namespace AppKi.Business.Strategies;
 
 public abstract class BaseTradeStrategy
 {
-    private IExchange _exchange;
+    protected IExchange _exchange;
 
     public BaseTradeStrategy(IExchange exchange)
     {
@@ -17,5 +17,5 @@ public abstract class BaseTradeStrategy
 
     public abstract TradeStrategyType Type { get; }
     public abstract Task<List<TickerInfo>> FindTickers(TickerCriteria findCriteria, CancellationToken token = default);
-    public abstract Task Run(StrategySettings settings, CancellationToken token = default);
+    public abstract Task<Result> Run(StrategySettings settings, CancellationToken token = default);
 }
